@@ -443,7 +443,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="lg:col-span-1 flex justify-center relative mp-design-system">
+          <div className="mt-12 lg:col-span-1 flex justify-center relative mp-design-system">
             <Link
               href="/productos"
               className="px-8 py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/30 hover:-translate-y-1 hover:shadow-xl hover:bg-primary-hover transition-all flex items-center gap-2 text-sm duration-300"
