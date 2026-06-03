@@ -216,24 +216,20 @@ export const ChatbotBubble: React.FC = () => {
     if (foundId) {
       handleAction(foundId, text);
     } else if (
-      lower.includes("desarrollador") ||
-      lower.includes("programador") ||
-      lower.includes("creador") ||
-      lower.includes("quien hizo") ||
-      lower.includes("quien creo")
+      lowerInput.includes("desarrollador") ||
+      lowerInput.includes("programador") ||
+      lowerInput.includes("creador") ||
+      lowerInput.includes("quien hizo") ||
+      lowerInput.includes("quien creo")
     ) {
-      setTimeout(() => {
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: Date.now().toString(),
-            text: "Esta web fue desarrollada, diseñada y programada íntegramente por **Martín Porollan**. Un crack.",
-            isBot: true,
-            options: [{ id: "main_menu", label: "🏠 Volver al Menú Principal" }],
-          },
-        ]);
-        setIsTyping(false);
-      }, 800);
+      setMessages((prev) => [
+        ...prev,
+        { id: Date.now().toString(), sender: "user", text },
+      ]);
+      addBotMessage(
+        "Esta web fue desarrollada, diseñada y programada íntegramente por Martín Porollan. Un crack. 🚀",
+        BACK_TO_MENU_OPTION
+      );
     } else {
       setMessages((prev) => [
         ...prev,
