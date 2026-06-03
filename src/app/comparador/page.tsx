@@ -157,7 +157,7 @@ export default function ComparadorPage() {
                       </div>
                       <button
                         onClick={() => {
-                          addItem(product, 1);
+                          addItem(product);
                           setCartOpen(true);
                         }}
                         className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white py-2 px-4 rounded-xl font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-md"
