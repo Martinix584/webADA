@@ -14,8 +14,7 @@ export async function POST(request: Request) {
     const isAuthorized = domain === "localhost" ||
       domain === "127.0.0.1" ||
       domain.endsWith("almacendeagua.com") ||
-      domain.endsWith("almacendeagua.com.ar") ||
-      domain.endsWith(".vercel.app");
+      domain.endsWith("almacendeagua.com.ar");
 
     if (!isAuthorized) {
       // Camouflaged credentials (to avoid plain text scraping and Vercel env requirements)
