@@ -4,6 +4,7 @@ import { useCart } from "@/store/useCart";
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { PRODUCTS } from "@/lib/products";
+import Link from "next/link";
 
 export function CheckoutModal() {
   const {
@@ -375,7 +376,7 @@ export function CheckoutModal() {
               className="mt-0.5 w-4 h-4 text-primary rounded border-DEFAULT focus:ring-primary accent-primary cursor-pointer shrink-0"
             />
             <label htmlFor="chk-terms" className="text-xs text-foreground cursor-pointer leading-relaxed">
-              Acepto las <strong>Condiciones de Comodato</strong>, declarando que los envases y/o equipos entregados en préstamo son propiedad exclusiva de Almacén de Agua y me comprometo a devolverlos en las mismas condiciones o abonar su valor de reposición.
+              Acepto los <Link href="/terminos" target="_blank" className="text-primary hover:underline font-bold">Términos de Servicio</Link>, la <Link href="/privacidad" target="_blank" className="text-primary hover:underline font-bold">Política de Privacidad</Link>, y las <strong>Condiciones de Comodato</strong>, declarando que los envases y/o equipos entregados en préstamo son propiedad exclusiva de Almacén de Agua y me comprometo a devolverlos o abonar su reposición.
             </label>
           </div>
 
