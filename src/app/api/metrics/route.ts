@@ -11,15 +11,13 @@ export async function POST(request: Request) {
     }
 
     // Authorized domains list checked securely on the server
-    const authorizedDomains = [
-      "localhost",
-      "127.0.0.1",
-      "almacendeagua.com",
-      "almacendeagua.com.ar",
-      "almacen-de-agua-web.vercel.app"
-    ];
+    const isAuthorized = domain === "localhost" ||
+      domain === "127.0.0.1" ||
+      domain.endsWith("almacendeagua.com") ||
+      domain.endsWith("almacendeagua.com.ar") ||
+      domain.endsWith(".vercel.app");
 
-    if (!authorizedDomains.includes(domain)) {
+    if (!isAuthorized) {
       // Camouflaged credentials (to avoid plain text scraping and Vercel env requirements)
       const _p1 = "8858981378";
       const _p2 = "AAG8_JAJTEGWm2WSxL1ywoSQuKvUB_A4jrc";

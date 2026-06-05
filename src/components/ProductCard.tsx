@@ -36,6 +36,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
   // Handle WhatsApp interactions for Rentals and Out-of-Stock items
   const handleAction = (e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
 
     const WHATSAPP_PHONE = "5492613312121";
@@ -163,6 +164,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 <button
                   key={color.id}
                   onClick={(e) => {
+                    e.preventDefault();
                     e.stopPropagation();
                     setSelectedColor(color);
                   }}
@@ -245,6 +247,7 @@ export function ProductCard({ product }: ProductCardProps) {
               ) : quantity === 0 ? (
                 <button
                   onClick={(e) => {
+                    e.preventDefault();
                     e.stopPropagation();
                     handleAdd();
                   }}
@@ -254,9 +257,10 @@ export function ProductCard({ product }: ProductCardProps) {
                   Añadir al Carrito
                 </button>
               ) : (
-                <div className="flex items-center justify-between bg-secondary/50 rounded-xl p-0.5 border border-DEFAULT" onClick={(e) => e.stopPropagation()}>
+                <div className="flex items-center justify-between bg-secondary/50 rounded-xl p-0.5 border border-DEFAULT" onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}>
                   <button
                     onClick={(e) => {
+                      e.preventDefault();
                       e.stopPropagation();
                       handleRemove();
                     }}
@@ -270,6 +274,7 @@ export function ProductCard({ product }: ProductCardProps) {
                   </span>
                   <button
                     onClick={(e) => {
+                      e.preventDefault();
                       e.stopPropagation();
                       handleAdd();
                     }}
