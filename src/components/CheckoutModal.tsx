@@ -24,6 +24,7 @@ export function CheckoutModal() {
   const [zone, setZone] = useState("");
   const [schedule, setSchedule] = useState("");
   const [notes, setNotes] = useState("");
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -46,7 +47,7 @@ export function CheckoutModal() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !phone || !address || (deliveryMethod === "delivery" && !zone) || !schedule) return;
+    if (!name || !phone || !address || (deliveryMethod === "delivery" && !zone) || !schedule || !acceptedTerms) return;
 
     setLoading(true);
 
@@ -361,6 +362,21 @@ export function CheckoutModal() {
               onChange={(e) => setNotes(e.target.value)}
               className="w-full p-3 border border-DEFAULT rounded-xl bg-card text-foreground text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none"
             />
+          </div>
+
+          {/* Terms & Conditions (Comodato) */}
+          <div className="flex items-start gap-3 p-4 bg-primary/5 border border-primary/20 rounded-xl mt-4">
+            <input
+              type="checkbox"
+              id="chk-terms"
+              required
+              checked={acceptedTerms}
+              onChange={(e) => setAcceptedTerms(e.target.checked)}
+              className="mt-0.5 w-4 h-4 text-primary rounded border-DEFAULT focus:ring-primary accent-primary cursor-pointer shrink-0"
+            />
+            <label htmlFor="chk-terms" className="text-xs text-foreground cursor-pointer leading-relaxed">
+              Acepto las <strong>Condiciones de Comodato</strong>, declarando que los envases y/o equipos entregados en préstamo son propiedad exclusiva de Almacén de Agua y me comprometo a devolverlos en las mismas condiciones o abonar su valor de reposición.
+            </label>
           </div>
 
           {/* Summary Box */}
