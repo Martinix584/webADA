@@ -421,8 +421,8 @@ export function CheckoutModal() {
             </button>
             <button
               type="submit"
-              disabled={loading}
-              className="flex-1 py-3 bg-success hover:bg-success-hover text-white font-bold text-xs rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 duration-300"
+              disabled={loading || !acceptedTerms}
+              className="flex-1 py-3 bg-success hover:bg-success-hover text-white font-bold text-xs rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <>
